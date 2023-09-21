@@ -1,23 +1,19 @@
-'use client';
+"use client"
 
-import React from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import classNames from 'classnames';
+import React from "react"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import classNames from "classnames"
 
 export default function NavBar() {
-  const pathname = usePathname();
+  const pathname = usePathname()
 
   const pages = {
-    'Basic Completion': '/basic-completion',
-    'Basic Chat': '/basic-chat',
-    'Docs Chat': '/docs-chat',
-    'Recipe JIT UI': '/recipe',
-    'Building Blocks JIT UI': '/building-blocks',
-    'Speech-to-Text': '/asr',
-    'Text-to-Speech': '/tts',
-    'Voice Agent': '/agent',
-  };
+    "Basic Completion": "/basic-completion",
+    "Basic Chat": "/basic-chat",
+    "Recipe JIT UI": "/recipe",
+    "Building Blocks JIT UI": "/building-blocks",
+  }
 
   return (
     <nav className="bg-white shadow">
@@ -37,22 +33,23 @@ export default function NavBar() {
               </div>
               <div className="hidden sm:ml-6 sm:flex justify-center w-full sm:space-x-8">
                 {Object.entries(pages).map(([name, href]) => {
-                  const active = pathname.startsWith(href);
+                  const active = pathname.startsWith(href)
                   return (
                     <Link
                       key={href}
                       href={href}
                       className={classNames(
-                        'inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700',
+                        "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700",
                         {
-                          'border-fixie-ripe-salmon text-gray-900': active,
-                          'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700': !active,
+                          "border-fixie-ripe-salmon text-gray-900": active,
+                          "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700":
+                            !active,
                         }
                       )}
                     >
                       {name}
                     </Link>
-                  );
+                  )
                 })}
               </div>
             </div>
@@ -60,5 +57,5 @@ export default function NavBar() {
         </div>
       </>
     </nav>
-  );
+  )
 }
